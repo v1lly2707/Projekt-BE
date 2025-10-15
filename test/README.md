@@ -1,0 +1,1 @@
+# Kody źródłowe testów automatycznych
