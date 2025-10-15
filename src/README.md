@@ -1,1 +1,1 @@
-#Tutaj bedzie kod źródłowy aplikacji
+# Tutaj bedzie kod źródłowy aplikacji
