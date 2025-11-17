@@ -1,0 +1,43 @@
+# 1. Konfiguracja specyficzna dla środowiska (KRYTYCZNE!)
+src/app/config/parameters.php
+
+# Plik generowany z parameters.php 
+src/config/settings.inc.php
+
+# 2. Zależności (Composer i NPM)
+src/vendor/
+src/node_modules/
+
+# Zależności NPM wewnątrz motywów (bardzo częste)
+src/themes/**/node_modules/
+
+# 3. Cache, Logi i Sesje PrestaShop
+src/var/
+src/app/cache/
+
+# 4. Pliki wgrywane przez użytkownika (Media)
+src/img/c/
+src/img/p/
+src/img/m/
+src/img/s/
+src/img/st/
+src/img/su/
+src/img/tmp/
+src/img/cms/
+
+# Pliki wgrywane (np. załączniki do produktów)
+src/upload/
+src/download/
+
+# 5. Pliki generowane (mapy stron, tłumaczenia)
+src/sitemap.xml
+src/translations/
+src/modules/ps_mbo/translations/
+
+# 6. Pliki systemowe i IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
