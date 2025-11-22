@@ -1,4 +1,24 @@
-/src/var/cache/
+# --- IDE & System ---
+.idea/
+.vscode/
+.DS_Store
+thumbs.db
+
+# --- Docker ---
+docker-compose.override.yml
+.env
+
+# --- PRESTASHOP (Najważniejsze!) ---
+# Ignorujemy plik z hasłami do bazy danych (każdy wygeneruje go sobie sam)
+src/app/config/parameters.php
+src/app/config/parameters.yml
+src/var/config/parameters.php
+
+# Ignorujemy cache i logi
+src/var/cache/
 src/var/logs/
 src/var/sessions/
-src/img/tmp/
+
+# Ignorujemy wygenerowane pliki instalacyjne (opcjonalnie, ale zalecane)
+src/admin-dev/autoupgrade/
+src/install/
