@@ -1,4 +1,3 @@
-/src/var/cache/
-src/var/logs/
-src/var/sessions/
-src/img/tmp/
+/src/*
+!/src/custom-modules/
+!/src/themes/
