@@ -1,0 +1,244 @@
+[
+  {
+    "category_name": "NAPOJE",
+    "category_url": "https://wkdzik.pl/produkty-dzik",
+    "subcategories": [
+      {
+        "subcategory_name": "DZIK® ENERGY",
+        "subcategory_url": "https://wkdzik.pl/produkty-dzik/energy"
+      },
+      {
+        "subcategory_name": "DZIK® ZERO KOFEINY",
+        "subcategory_url": "https://wkdzik.pl/produkty-dzik/zero-caffeine"
+      },
+      {
+        "subcategory_name": "DZIK® BOOST",
+        "subcategory_url": "https://wkdzik.pl/produkty-dzik/boost"
+      },
+      {
+        "subcategory_name": "DZIK® VITAMIN DRINK",
+        "subcategory_url": "https://wkdzik.pl/napoje/vitamin-drink"
+      }
+    ]
+  },
+  {
+    "category_name": "ODŻYWIANIE",
+    "category_url": "https://wkdzik.pl/odzywianie",
+    "subcategories": [
+      {
+        "subcategory_name": "Batony",
+        "subcategory_url": "https://wkdzik.pl/odzywianie/batony"
+      },
+      {
+        "subcategory_name": "Chipsy",
+        "subcategory_url": "https://wkdzik.pl/odzywianie/chipsy"
+      },
+      {
+        "subcategory_name": "Lody proteinowe",
+        "subcategory_url": "https://wkdzik.pl/odzywianie/lody-proteinowe"
+      },
+      {
+        "subcategory_name": "Kawy",
+        "subcategory_url": "https://wkdzik.pl/odzywianie/kawy"
+      },
+      {
+        "subcategory_name": "Sosy zero",
+        "subcategory_url": "https://wkdzik.pl/odzywianie/sosy-zero-kalorii"
+      },
+      {
+        "subcategory_name": "Wafle",
+        "subcategory_url": "https://wkdzik.pl/odzywianie/wafle"
+      },
+      {
+        "subcategory_name": "Zestawy",
+        "subcategory_url": "https://wkdzik.pl/odzywianie/zestawy"
+      },
+      {
+        "subcategory_name": "BATON PROTEINOWY SŁONY KARMEL CRUNCHY\n8,50 zł9,00 zł",
+        "subcategory_url": "https://wkdzik.pl/baton-proteinowy-slony-karmel"
+      },
+      {
+        "subcategory_name": "DZIK® WAFLE KUKURYDZIANE - ZIELONA CEBULKA\n5,00 zł5,50 zł",
+        "subcategory_url": "https://wkdzik.pl/dzik-wafle-kukurydziane-low-fat-zielona-cebulka"
+      },
+      {
+        "subcategory_name": "SOS ZERO DZIK® CINNAMON ROLL\n16,00 zł18,00 zł",
+        "subcategory_url": "https://wkdzik.pl/sos-zero-dzik-cinnamon-roll"
+      }
+    ]
+  },
+  {
+    "category_name": "SUPLEMENTY",
+    "category_url": "https://wkdzik.pl/suplementy",
+    "subcategories": [
+      {
+        "subcategory_name": "Zestawy",
+        "subcategory_url": "https://wkdzik.pl/suplementy-i-odzywianie/zestawy"
+      },
+      {
+        "subcategory_name": "Białka Dobre WHEY",
+        "subcategory_url": "https://wkdzik.pl/suplementy/dobre-whey"
+      },
+      {
+        "subcategory_name": "Kreatyny",
+        "subcategory_url": "https://wkdzik.pl/suplementy/kreatyna"
+      },
+      {
+        "subcategory_name": "Cytruliny",
+        "subcategory_url": "https://wkdzik.pl/suplementy/cytrulina"
+      },
+      {
+        "subcategory_name": "Przedtreningówki",
+        "subcategory_url": "https://wkdzik.pl/suplementy/przedtreningowki"
+      },
+      {
+        "subcategory_name": "Witaminy",
+        "subcategory_url": "https://wkdzik.pl/suplementy/witaminy"
+      },
+      {
+        "subcategory_name": "Żele energetyczne",
+        "subcategory_url": "https://wkdzik.pl/suplementy/zele-energetyczne"
+      },
+      {
+        "subcategory_name": "KREATYNA COLA DZIK®\n40,00 zł45,00 zł",
+        "subcategory_url": "https://wkdzik.pl/kreatyna-cola-dzik"
+      },
+      {
+        "subcategory_name": "KREATYNA COLA-LEMON DZIK®\n40,00 zł45,00 zł",
+        "subcategory_url": "https://wkdzik.pl/pl/p/KREATYNA-COLA-LEMON-DZIK/3738"
+      },
+      {
+        "subcategory_name": "PRZEDTRENINGÓWKA GRAPE DZIK®\n62,00 zł70,00 zł",
+        "subcategory_url": "https://wkdzik.pl/pl/p/PRZEDTRENINGOWKA-BOMBA-GRAPE-DZIK/3750"
+      }
+    ]
+  },
+  {
+    "category_name": "UBRANIA",
+    "category_url": "https://wkdzik.pl/ubrania",
+    "subcategories": [
+      {
+        "subcategory_name": "Mężczyźni",
+        "subcategory_url": "https://wkdzik.pl/ubrania/meskie"
+      },
+      {
+        "subcategory_name": "Koszulki",
+        "subcategory_url": "https://wkdzik.pl/ubrania/meskie/koszulki"
+      },
+      {
+        "subcategory_name": "Tank topy",
+        "subcategory_url": "https://wkdzik.pl/ubrania/meskie/tank-topy"
+      },
+      {
+        "subcategory_name": "Bluzy",
+        "subcategory_url": "https://wkdzik.pl/ubrania/meskie/bluzy"
+      },
+      {
+        "subcategory_name": "Spodnie i legginsy",
+        "subcategory_url": "https://wkdzik.pl/ubrania/meskie/spodnie"
+      },
+      {
+        "subcategory_name": "Spodenki",
+        "subcategory_url": "https://wkdzik.pl/ubrania/meskie/spodenki"
+      },
+      {
+        "subcategory_name": "Kurtki",
+        "subcategory_url": "https://wkdzik.pl/ubrania/meskie/kurtki-i-kamizelki"
+      },
+      {
+        "subcategory_name": "Czapki",
+        "subcategory_url": "https://wkdzik.pl/ubrania/meskie/czapki"
+      },
+      {
+        "subcategory_name": "Skarpetki",
+        "subcategory_url": "https://wkdzik.pl/ubrania/meskie/skarpetki"
+      },
+      {
+        "subcategory_name": "Kobiety",
+        "subcategory_url": "https://wkdzik.pl/ubrania/damskie"
+      },
+      {
+        "subcategory_name": "Legginsy i spodnie",
+        "subcategory_url": "https://wkdzik.pl/ubrania/damskie/legginsy"
+      },
+      {
+        "subcategory_name": "Bluzy",
+        "subcategory_url": "https://wkdzik.pl/ubrania/damskie/bluzy"
+      },
+      {
+        "subcategory_name": "Staniki sportowe",
+        "subcategory_url": "https://wkdzik.pl/ubrania/damskie/staniki-sportowe"
+      },
+      {
+        "subcategory_name": "Spodenki",
+        "subcategory_url": "https://wkdzik.pl/ubrania/damskie/spodenki"
+      },
+      {
+        "subcategory_name": "Kamizelki",
+        "subcategory_url": "https://wkdzik.pl/ubrania/damskie/kamizelki"
+      },
+      {
+        "subcategory_name": "Czapki",
+        "subcategory_url": "https://wkdzik.pl/ubrania/damskie/czapki"
+      },
+      {
+        "subcategory_name": "KURTKA REGULAR CZARNA DZIK® PRIMALOFT®\n580,00 zł650,00 zł",
+        "subcategory_url": "https://wkdzik.pl/kurtka-regular-czarna-dzik-primaloft"
+      },
+      {
+        "subcategory_name": "BLUZA INTERLOCK OVERSIZE CZARNA DZIK®\n320,00 zł350,00 zł",
+        "subcategory_url": "https://wkdzik.pl/bluza-interlock-oversize-czarna-dzik"
+      },
+      {
+        "subcategory_name": "KOSZULKA SLIM Z PERFORACJĄ SZARA DZIK®\n200,00 zł220,00 zł",
+        "subcategory_url": "https://wkdzik.pl/koszulka-slim-z-perforacja-szara-dzik"
+      }
+    ]
+  },
+  {
+    "category_name": "AKCESORIA",
+    "category_url": "https://wkdzik.pl/akcesoria",
+    "subcategories": [
+      {
+        "subcategory_name": "Zestawy",
+        "subcategory_url": "https://wkdzik.pl/akcesoria/zestawy"
+      },
+      {
+        "subcategory_name": "Akcesoria treningowe",
+        "subcategory_url": "https://wkdzik.pl/akcesoria/akcesoria-treningowe"
+      },
+      {
+        "subcategory_name": "Torby i Plecaki",
+        "subcategory_url": "https://wkdzik.pl/akcesoria/torby-i-plecaki"
+      },
+      {
+        "subcategory_name": "Shakery i Kubki",
+        "subcategory_url": "https://wkdzik.pl/akcesoria/shakery-kubki"
+      },
+      {
+        "subcategory_name": "Gadżety",
+        "subcategory_url": "https://wkdzik.pl/akcesoria/gadzety"
+      },
+      {
+        "subcategory_name": "Książki",
+        "subcategory_url": "https://wkdzik.pl/akcesoria/ksiazki-wlepki"
+      },
+      {
+        "subcategory_name": "EBOOK FUNDAMENTY\nFREE",
+        "subcategory_url": "https://wkdzik.pl/fundamenty"
+      },
+      {
+        "subcategory_name": "DZIK® SKAKANKA TRENINGOWA\n50,00 zł60,00 zł",
+        "subcategory_url": "https://wkdzik.pl/dzik-skakanka-treningowa"
+      },
+      {
+        "subcategory_name": "MINI BAND - GUMA NIEBIESKA\n35,00 zł45,00 zł",
+        "subcategory_url": "https://wkdzik.pl/hip-band-materialowa-guma-niebieska"
+      },
+      {
+        "subcategory_name": "DZIK® PRO RUN RĘKAWY KOMPRESYJNE\n120,00 zł150,00 zł",
+        "subcategory_url": "https://wkdzik.pl/dzik-pro-run-rekawy-kompresyjne-czarne"
+      }
+    ]
+  }
+]

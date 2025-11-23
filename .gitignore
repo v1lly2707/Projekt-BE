@@ -1,0 +1,10 @@
+
+/src/var/cache/
+/src/var/logs/
+/vendor/
+
+/nginx/certs/*.key
+/nginx/certs/*.crt
+
+*.DS_Store
+*.pyc
