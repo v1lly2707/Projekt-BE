@@ -30,6 +30,7 @@ services:
       PS_INSTALL_AUTO: 0
     volumes:
     - ps_data:/var/www/html
+    - ./src/img:/var/www/html/img
     depends_on:
       - db
     networks:
