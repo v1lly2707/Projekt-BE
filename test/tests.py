@@ -11,10 +11,10 @@ import string
 
 # =============== TEST 1 ==========================
 
-KATEGORIA_1_ID = 9
-KATEGORIA_1_NAZWA = "art"
-KATEGORIA_2_ID = 6
-KATEGORIA_2_NAZWA = "accessories"
+KATEGORIA_1_ID = 251
+KATEGORIA_1_NAZWA = "odziez-sportowa-meska"
+KATEGORIA_2_ID = 253
+KATEGORIA_2_NAZWA = "suplementy-na-silownie"
 LICZBA_PRODOKTOW = 10
 LICZBA_PRODOKTOW_NA_KATEGORIE = 5
 
@@ -84,7 +84,7 @@ def test_add_products_from_categories():
 
 # ================ TEST 2 ==================
 
-SZUKANA_FRAZA = "framed"
+SZUKANA_FRAZA = "ODŻYWKA"
 
 def add_random_product_via_search(search_term):
 
@@ -241,7 +241,7 @@ def order_from_cart():
 if __name__ == "__main__":
     chrome_options = Options()
     chrome_options.binary_location = "/snap/bin/chromium"
-    chrome_options.add_argument("--headless")
+    #chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--remote-debugging-port=9222")

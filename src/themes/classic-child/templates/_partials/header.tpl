@@ -1,36 +1,39 @@
 {**
- * Copyright since 2007 PrestaShop SA and Contributors
- * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
- *
- * NOTICE OF LICENSE
- *
- * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
- * that is bundled with this package in the file LICENSE.md.
- * It is also available through the world-wide-web at this URL:
- * https://opensource.org/licenses/AFL-3.0
- * If you did not receive a copy of the license and are unable to
- * obtain it through the world-wide-web, please send an email
- * to license@prestashop.com so we can send you a copy immediately.
- *
- * DISCLAIMER
- *
- * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
- * versions in the future. If you wish to customize PrestaShop for your
- * needs please refer to https://devdocs.prestashop.com/ for more information.
- *
- * @author    PrestaShop SA and Contributors <contact@prestashop.com>
- * @copyright Since 2007 PrestaShop SA and Contributors
- * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
- *}
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
+ * that is bundled with this package in the file LICENSE.md.
+ * It is also available through the world-wide-web at this URL:
+ * https://opensource.org/licenses/AFL-3.0
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+ * versions in the future. If you wish to customize PrestaShop for your
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
+ *
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
+ * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
+ *}
 
 {block name='head_extra'}
   <style>
+    /* STYLIZACJA WBUDOWANA W HEADER.TPL */
 
     body {
         background-color: #000;
     }
 
-    
+    /* ------------------------------------------- */
+    /* 1. PASEK PROMOCYJNY (GÓRNY) */
+    /* ------------------------------------------- */
     .dzik-top-bar {
         background: #1a1a1a;
         color: #fff;
@@ -45,22 +48,29 @@
         top: 3px;
     }
 
-    
+    /* ------------------------------------------- */
+    /* 2. GŁÓWNY NAGŁÓWEK (WSZYSTKO W JEDNYM WIERSZU) */
+    /* ------------------------------------------- */
 
+
+    /* STYLIZACJA STRONY LOGOWANIA WK DZIK */
+
+/* Główny kontener 3-kolumnowy */
 .wk-login-grid-wrapper {
     display: flex;
     justify-content: center;
-    gap: 30px; 
+    gap: 30px; /* Odstęp między kolumnami */
     max-width: 1100px;
     margin: 40px auto;
     padding: 20px;
+    /* Resetujemy domyślne style, aby białe tło było widoczne */
     background: transparent !important; 
 }
 
 .wk-social-login,
 .wk-main-login,
 .wk-register-benefits {
-    flex: 1; 
+    flex: 1; /* Każda kolumna ma taką samą szerokość */
     padding: 30px;
     background: #fff; 
     border-radius: 5px;
@@ -75,12 +85,14 @@
     margin-bottom: 25px;
 }
 
+/* 1. STYLIZACJA PRZYCISKÓW SOCJALNYCH (LEWA) */
 .wk-social-buttons button {
     width: 100%;
     margin-bottom: 15px;
     padding: 15px;
     font-weight: bold;
     border-radius: 4px;
+    /* Domyślne style dla przycisków */
     cursor: pointer;
 }
 .wk-facebook-btn {
@@ -92,6 +104,7 @@
     background: #db4437 !important; 
 }
 
+/* 2. STYLIZACJA PRZYCISKÓW GŁÓWNYCH (CZARNE, JAK WK DZIK) */
 .wk-main-login .btn-primary,
 .wk-register-benefits .wk-register-btn {
     background: #000 !important;
@@ -101,12 +114,14 @@
     font-size: 16px;
     text-transform: none;
     border-radius: 4px;
-    width: 100%; 
+    width: 100%; /* Przyciski na całą szerokość kolumny */
 }
 .wk-main-login .login-form-submit {
+    /* Upewnij się, że przycisk w formularzu jest wyśrodkowany, jeśli nie ma 100% szerokości */
     text-align: center;
 }
 
+/* 3. REJESTRACJA I KORZYŚCI (PRAWA) */
 .wk-register-benefits ul {
     list-style: disc;
     padding-left: 20px;
@@ -116,7 +131,7 @@
     margin-bottom: 10px;
 }
     .wk-main-header {
-        background: #1a1a1a !important; 
+        background: #1a1a1a !important; /* Ciemne tło */
         padding: 15px 0;
     }
     
@@ -127,6 +142,7 @@
     width: 100%;
 }
     
+    /* 3. LOGO */
     .wk-col-logo {
     flex: 0 0 auto;
     background: transparent !important;
@@ -134,24 +150,26 @@
     
 }
 .wk-col-logo img {
-    max-height: 75px; 
+    max-height: 75px; /* Dopasuj wysokość logo */
     width: 80px;
-    opacity: 1 !important; 
+    opacity: 1 !important; /* Wymuś pełną widoczność */
 }
     
-
+    /* 4. GŁÓWNE MENU (Centralny element) */
     .wk-col-menu {
-        flex-grow: 1; 
-        text-align: center; 
+        flex-grow: 1; /* Pozwala menu wypełnić przestrzeń */
+        text-align: center; /* Wyśrodkowanie linków menu */
     }
+    /* KLUCZOWA POPRAWKA: Używamy Flex i ważnych priorytetów */
     .wk-col-menu #top-menu {
-        display: inline-flex !important;
-        justify-content: center !important; 
+        display: inline-flex !important; /* Wymuś bycie w linii i elastyczność */
+        justify-content: center !important; /* Wyśrodkowanie linków */
         list-style: none;
         margin: 0;
         padding: 0;
     }
     .wk-col-menu #top-menu > li {
+        /* Wymuś, by linki były inline, a nie blokami */
         display: block !important; 
         float: none !important; 
         padding: 0 5px;
@@ -163,20 +181,23 @@
         padding: 6px 10px;
         text-transform: uppercase;
         text-decoration: none;
-        white-space: nowrap; 
+        white-space: nowrap; /* Zapobiega łamaniu linków */
     }
 
+    /* 5. IKONY I WYSZUKIWARKA (PRAWY BLOK) */
     .wk-col-icons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; /* Cała sekcja na prawo */
         align-items: center;
         color: #fff;
         font-size: 16px;
         flex-wrap: nowrap; 
         flex-basis: auto;
+        /*padding-right: 40px;*/
     }
+    /* Wyszukiwarka - Zmniejszenie szerokości pola */
     .wk-col-icons #search_widget {
-        max-width: 110px; 
+        max-width: 110px; /* ZMNIEJSZONA SZEROKOŚĆ */
         margin-right: 10px;
         max-height: 45px;
     }
@@ -187,12 +208,14 @@
         color: #fff !important;
     }
     
+    /* Ikony Zaloguj/Koszyk - obok wyszukiwarki */
     .wk-col-icons .header-nav-element {
         display: flex !important;
         align-items: center;
         margin-left: 10px;
     }
 
+    /* Ukrycie tekstu obok ikon */
     .wk-col-icons .user-info > a > span,
     .wk-col-icons .cart-preview > a > span,
     .wk-col-icons .header-nav-element span {
@@ -205,7 +228,9 @@
         color: #fff !important;
     }
 
+    /* STYLIZACJA STRONY REJESTRACJI WK DZIK */
 
+/* 1. SEKCJA SPOŁECZNOŚCIOWA (GÓRNY BLOK) */
 .wk-social-register-header {
     max-width: 500px;
     margin: 40px auto 30px auto;
@@ -224,7 +249,7 @@
 }
 
 .wk-social-buttons a {
-    flex-grow: 1; 
+    flex-grow: 1; /* Równa szerokość przycisków */
     padding: 10px 15px;
     font-weight: bold;
     border-radius: 4px;
@@ -238,14 +263,16 @@
     background: #3b5998 !important;
 }
 .wk-google-btn {
+    /* Nadajemy styl dla kontrastu */
     color: #333 !important;
     background: #fff !important;
     border: 1px solid #ccc; 
 }
 
 
+/* 2. GŁÓWNY FORMULARZ REJESTRACJI */
 .wk-register-main-form {
-    max-width: 500px; 
+    max-width: 500px; /* Ustawienie formularza na stałą, węższą szerokość */
     margin: 0 auto;
     padding: 20px 0;
     text-align: center;
@@ -257,12 +284,14 @@
     text-align: left;
 }
 
+/* Węższe pola wprowadzania danych (jak na wzorze) */
 .register-form .form-control {
-    max-width: 100%; 
+    max-width: 100%; /* Pole musi być 100% swojego kontenera */
     border-radius: 4px;
     height: 45px;
 }
 
+/* Stylizacja przycisku końcowego (Zarejestruj się) - duży, czarny */
 .wk-register-final-btn {
     background: #000 !important;
     color: white !important;
@@ -271,9 +300,9 @@
     font-size: 18px;
     text-transform: none;
     border-radius: 4px;
-    width: 100%; 
-    max-width: 300px; 
-    margin: 30px auto 0 auto;
+    width: 100%; /* Ustawienie na całą szerokość kolumny */
+    max-width: 300px; /* Ograniczenie maksymalnej szerokości */
+    margin: 30px auto 0 auto; /* Wyśrodkowanie przycisku */
 }
 
   </style>
@@ -281,6 +310,7 @@
 
 
 {block name='header_banner'}
+  {* 1. GÓRNY PASEK PROMOCYJNY (JAK W DZIK) *}
   <div class="header-nav dzik-top-bar">
     <div class="container">
       <div class="row">
@@ -323,10 +353,12 @@
 {/block}
 
 {block name='header_top'}
+  {* 2. GŁÓWNA STRUKTURA: LOGO, MENU, IKONY - WSZYSTKO W JEDNYM WIERSZU *}
   <div class="header-top wk-main-header">
     <div class="container">
        <div class="wk-header-row">
 
+        {* 1. KOLUMNA LOGO (Lewy Róg) *}
         <div class="wk-col-logo" id="_desktop_logo">
             {if $shop.logo_details}
               <a href="{$urls.base_url}">
@@ -337,18 +369,22 @@
             {/if}
         </div>
 
+        {* 2. KOLUMNA MENU GŁÓWNEGO (Środek) *}
         <div class="wk-col-menu">
             {hook h='displayNavFullWidth'}
         </div>
 
+        {* 3. KOLUMNA IKON I WYSZUKIWARKI (Prawy Róg) *}
         <div class="wk-col-icons">
             {* 3a. Wyszukiwarka *}
             {hook h='displayTop'}
             
+            {* 3b. Zaloguj się/Konto *}
             <div id="_desktop_user_info" class="header-nav-element">
                 {hook h='displayNav2'}
             </div>
             
+            {* 3c. Koszyk *}
             <div id="_desktop_cart" class="header-nav-element">
                 {hook h='displayShoppingCart'}
             </div>

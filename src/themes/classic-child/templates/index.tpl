@@ -1,0 +1,394 @@
+{**
+ * Copyright since 2007 PrestaShop SA and Contributors
+ * PrestaShop is an International Registered Trademark & Property of PrestaShop SA
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License 3.0 (AFL-3.0)
+ * that is bundled with this package in the file LICENSE.md.
+ * It is also available through the world-wide-web at this URL:
+ * https://opensource.org/licenses/AFL-3.0
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+ * versions in the future. If you wish to customize PrestaShop for your
+ * needs please refer to https://devdocs.prestashop.com/ for more information.
+ *
+ * @author    PrestaShop SA and Contributors <contact@prestashop.com>
+ * @copyright Since 2007 PrestaShop SA and Contributors
+ * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
+ *}
+<style>
+#wrapper {
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#carousel {
+    width: 100vw !important;
+    height: auto !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: 0 !important;
+    padding-bottom: 100px !important;
+    background-color: #fff !important;
+    position: relative !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+#carousel .carousel-item img,
+#carousel img {
+    height: 85vh !important;
+    width: 100vw !important;
+    object-fit: cover !important;
+    display: block !important;
+    max-width: none !important;
+}
+
+.carousel-inner {
+    height: 85vh !important;
+    width: 100% !important;
+}
+
+.carousel-indicators {
+    position: absolute !important;
+    bottom: 45px !important;
+    left: 0 !important;
+    right: 0 !important;
+    margin: 0 !important;
+    z-index: 100 !important;
+    display: flex !important;
+    justify-content: center !important;
+    width: 100% !important;
+    padding: 0 !important;
+}
+
+.carousel-indicators li {
+    background-color: #d6d6d6 !important;
+    width: 90px !important;
+    height: 7px !important;
+    border: none !important;
+    opacity: 1 !important;
+    margin: 0 10px !important;
+    border-radius: 5px !important;
+}
+
+.carousel-indicators li.active {
+    background-color: #69d7f3 !important;
+}
+
+.left.carousel-control,
+.right.carousel-control {
+    position: absolute !important;
+    top: auto !important;
+    bottom: 5.5vh !important;
+    height: 100px !important;
+    width: 100px !important;
+    background-image: none !important;
+    background: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border: none !important;
+    opacity: 1 !important;
+    z-index: 50 !important;
+}
+
+.left.carousel-control {
+    left: 50px !important;
+}
+
+.right.carousel-control {
+    right: 50px !important;
+}
+
+.icon-prev::before,
+.icon-next::before,
+.carousel-control .material-icons {
+    content: none !important;
+    display: none !important;
+    visibility: hidden !important;
+    width: 0 !important;
+}
+
+.icon-prev,
+.icon-next {
+    font-family: inherit !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none !important;
+}
+
+.icon-prev::after {
+    content: "\27F5" !important;
+    font-size: 70px !important;
+    color: #000 !important;
+    font-weight: 400 !important;
+    display: block !important;
+}
+
+.icon-next::after {
+    content: "\27F6" !important;
+    font-size: 70px !important;
+    color: #000 !important;
+    font-weight: 100 !important;
+    display: block !important;
+}
+
+#carousel a.carousel-control {
+    color: transparent !important;
+}
+
+.wk-categories-grid {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px !important;
+    margin-bottom: 50px !important;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.wk-tile-wrapper {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.wk-tile-link {
+    display: block !important;
+    position: relative !important;
+    height: 500px !important;
+    min-height: 500px !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    background-color: #333;
+    z-index: 1;
+}
+
+.wk-tile-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    pointer-events: none !important;
+    z-index: 2;
+}
+
+.wk-tile-content {
+    pointer-events: none !important;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+.wk-tile-bg {
+    width: 100% !important;
+    height: 500px !important;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    transition: transform 0.6s ease;
+}
+
+.wk-tile-link:hover .wk-tile-bg {
+    transform: scale(1.05);
+}
+
+.wk-tile-title {
+    color: #fff !important;
+    font-size: 28px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 767px) {
+    .wk-tile-link {
+        height: 300px !important;
+        min-height: 300px !important;
+    }
+    .wk-tile-title {
+        font-size: 20px !important;
+    }
+}
+
+#wrapper .container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+#index .banner img {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    height: auto;
+}
+
+section.featured-products .products-section-title {
+    text-align: left !important;
+    margin-left: 0 !important;
+    font-size: 26px !important;
+    font-weight: 800 !important;
+    color: #000 !important;
+    text-transform: none !important;
+    margin-bottom: 25px !important;
+    padding-left: 25px;
+}
+
+section.featured-products a.all-product-link {
+    float: none !important;
+    display: table !important;
+    margin: 30px auto 20px auto !important;
+    background-color: #111111;
+    color: #ffffff !important;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: lowercase;
+    text-decoration: none;
+    line-height: 1.2;
+    font-size: 14px;
+}
+
+section.featured-products a.all-product-link i {
+    display: none !important;
+}
+
+section.featured-products a.all-product-link:hover {
+    background-color: #333;
+    opacity: 1;
+}
+
+section.featured-products .products {
+    padding-left: 15px !important;
+}
+
+section.featured-products .product-miniature {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin-bottom: 10px !important;
+}
+
+section.featured-products .thumbnail-container {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+}
+
+section.featured-products .product-thumbnail img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 auto !important;
+    mix-blend-mode: multiply;
+    display: block;
+}
+
+section.featured-products .product-description {
+    background: transparent !important;
+    text-align: left !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 10px !important;
+}
+
+section.featured-products .product-title,
+section.featured-products .product-title a {
+    text-align: left !important;
+    font-size: 13px !important;
+    text-transform: uppercase !important;
+    color: #111 !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    margin-bottom: 3px;
+    display: block;
+    line-height: 1.2;
+}
+
+section.featured-products .price {
+    text-align: left !important;
+    color: #000 !important;
+    font-weight: 800 !important;
+    font-size: 16px !important;
+    display: block;
+}
+
+section.featured-products .product-flags {
+    left: auto !important;
+    right: 0 !important;
+    top: 0 !important;
+}
+
+section.featured-products .product-flags .product-flag.new {
+    background: #00cceb !important;
+    color: #fff;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    top: 5px;
+    right: 5px;
+    position: absolute;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 4px 8px;
+}
+
+section.featured-products .wishlist-button-add,
+section.featured-products .wishlist-button-default,
+section.featured-products .popover-button-default,
+.highlighted-informations,
+.highlighted-informations .quick-view {
+    display: none !important;
+}
+
+@media (min-width: 1200px) {
+    section.featured-products .products .product,
+    section.featured-products .products .js-product {
+        -webkit-box-flex: 0 !important;
+        -ms-flex: 0 0 20% !important;
+        flex: 0 0 20% !important;
+        max-width: 20% !important;
+        width: 20% !important;
+        padding-left: 1px !important;
+        padding-right: 1px !important;
+    }
+}
+</style>
+
+{extends file='page.tpl'}
+
+    {block name='page_content_container'}
+      <section id="content" class="page-home">
+        {block name='page_content_top'}{/block}
+
+        {block name='page_content'}
+          {block name='hook_home'}
+            {$HOOK_HOME nofilter}
+          {/block}
+        {/block}
+      </section>
+    {/block}
