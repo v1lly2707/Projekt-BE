@@ -17,7 +17,6 @@ LICZBA_PRODOKTOW = 10
 LICZBA_PRODOKTOW_NA_KATEGORIE = 5
 
 
-
 def add_product_from_listing(product_num):
     products = wait.until(
         EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".product-miniature"))

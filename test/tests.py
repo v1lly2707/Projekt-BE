@@ -1,0 +1,279 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
+import time
+import random
+import string
+
+
+# =============== TEST 1 ==========================
+
+KATEGORIA_1_ID = 9
+KATEGORIA_1_NAZWA = "art"
+KATEGORIA_2_ID = 6
+KATEGORIA_2_NAZWA = "accessories"
+LICZBA_PRODOKTOW = 10
+LICZBA_PRODOKTOW_NA_KATEGORIE = 5
+
+def add_product_from_listing(product_num):
+    products = wait.until(
+        EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".product-miniature"))
+    )
+
+    if product_num < 1 or product_num > len(products):
+        raise ValueError(f"Niepoprawny numer produktu: {product_num}. Na stronie jest {len(products)} produktów.")
+
+    product = products[product_num - 1]  # indeksowanie od 0
+    wait.until(EC.element_to_be_clickable(product)).click()
+
+    quantity_to_add = random.randint(1, 3) # losujemy liczbę produktów
+
+    try:
+        qty_input = wait.until(
+            EC.presence_of_element_located(
+                (By.CSS_SELECTOR, "input[name='qty'], input.js-cart-line-product-quantity")
+            )
+        )
+        qty_input.click()
+        qty_input.send_keys(Keys.CONTROL + "a")
+        qty_input.send_keys(Keys.BACKSPACE)
+        qty_input.send_keys(str(quantity_to_add))
+    except Exception:
+        print("! Nie znaleziono pola ilości, używam domyślnej 1 sztuki")
+
+    add_btn = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button.add-to-cart")))
+    add_btn.click()
+
+    try:
+        wait.until(EC.visibility_of_element_located((By.ID, "blockcart-modal")))
+        proceed_btn = wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "#blockcart-modal a.btn.btn-primary"))
+        )
+        proceed_btn.click()
+    except Exception:
+        try:
+            cart_btn = wait.until(
+                EC.element_to_be_clickable((By.CSS_SELECTOR, "a[data-link-action='view-cart']"))
+            )
+            cart_btn.click()
+        except Exception:
+            pass
+
+
+def test_add_products_from_categories():
+    total_added = 0
+
+    base_url = "http://localhost/{}-{}"
+    category_ids = [KATEGORIA_1_ID, KATEGORIA_2_ID]
+    category_names = [KATEGORIA_1_NAZWA, KATEGORIA_2_NAZWA]
+    category_urls = [base_url.format(cat_id, cat_name) for cat_id, cat_name in zip(category_ids, category_names)]
+
+    for cat_index, url in enumerate(category_urls):
+        driver.get(url)
+        for i in range(1, LICZBA_PRODOKTOW_NA_KATEGORIE + 1):  
+            add_product_from_listing(i)
+            total_added += 1
+            driver.get(url)
+
+    driver.get("https://localhost/koszyk")
+    
+
+
+# ================ TEST 2 ==================
+
+SZUKANA_FRAZA = "framed"
+
+def add_random_product_via_search(search_term):
+
+    search_input = wait.until(EC.presence_of_element_located((By.NAME, "s")))
+    search_input.clear()
+    search_input.send_keys(search_term + Keys.ENTER) 
+    
+    results = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".product-miniature"))) 
+    if not results:
+        raise ValueError(f"Brak wyników dla wyszukiwanej frazy: {search_term}")
+    
+    random_index = random.randint(0, len(results) - 1) 
+    selected_product = results[random_index]
+    
+    wait.until(EC.element_to_be_clickable(selected_product)).click()
+    
+    add_btn = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button.add-to-cart")))
+    add_btn.click()
+    
+    try:
+        wait.until(EC.visibility_of_element_located((By.ID, "blockcart-modal")))
+        proceed_btn = wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "#blockcart-modal a.btn.btn-primary"))
+        )
+        proceed_btn.click()
+    except Exception:
+        pass
+
+    
+# ================ TEST 3 ==================
+
+LICZBA_USUWANYCH = 3
+
+def remove_products_from_cart(n_to_remove):
+    driver.get("https://localhost/koszyk")
+    time.sleep(1)
+
+    for i in range(n_to_remove):
+        try:
+            remove_buttons = driver.find_elements(By.CSS_SELECTOR, "a.remove-from-cart")
+            if not remove_buttons:
+                print("! Koszyk jest już pusty")
+                break
+
+            remove_btn = remove_buttons[0] 
+            remove_btn.click()
+
+            wait.until(EC.staleness_of(remove_btn))
+            time.sleep(1)  
+        except Exception as e:
+            print(f"! Błąd przy usuwaniu produktu: {e}")
+            break
+
+
+# ================ TEST 4 ==================
+
+TESTOWE_IMIE = "Marek"
+TESTOWE_NAZWISKO = "Kubale"
+TESTOWE_HASLO = "haslo_maslo"
+TESTOWA_DATA_URODZIN = "1945-12-31"
+
+def random_email():
+    return ''.join(random.choices(string.ascii_lowercase + string.digits, k=8)) + "@example.com"
+
+def register_new_account(driver):
+    wait = WebDriverWait(driver, 10)
+    driver.get("https://localhost/logowanie?create_account=1")
+
+    TESTOWY_EMAIL = random_email()
+    driver.find_element(By.CSS_SELECTOR, "label[for='field-id_gender-1']").click()
+    driver.find_element(By.ID, "field-firstname").send_keys(TESTOWE_IMIE)
+    driver.find_element(By.ID, "field-lastname").send_keys(TESTOWE_NAZWISKO)
+    driver.find_element(By.ID, "field-email").send_keys(TESTOWY_EMAIL)
+    driver.find_element(By.ID, "field-password").send_keys(TESTOWE_HASLO)
+    driver.find_element(By.ID, "field-birthday").send_keys(TESTOWA_DATA_URODZIN)
+
+    driver.find_element(By.NAME, "customer_privacy").click() 
+    driver.find_element(By.NAME, "psgdpr").click()
+    driver.find_element(By.NAME, "optin").click()
+    driver.find_element(By.NAME, "newsletter").click()
+
+    driver.find_element(By.CSS_SELECTOR, "button.form-control-submit").click()
+
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "a.account")))
+
+
+#================ TEST ZAMÓWIENIA ===============
+
+TESTOWY_ADRES = "Za górami, za lasami"
+TESTOWY_KOD_POCZTOWY = "77-777"
+TESTOWE_MIASTO = "Gdańsk"
+
+def order_from_cart():
+    driver.get("https://localhost/koszyk?action=show")
+
+    time.sleep(1)
+    checkout_btn = wait.until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, "a.btn.btn-primary"))
+    )
+    checkout_btn.click()
+
+    driver.find_element(By.ID, "field-address1").send_keys(TESTOWY_ADRES)
+    driver.find_element(By.ID, "field-postcode").send_keys(TESTOWY_KOD_POCZTOWY)
+    driver.find_element(By.ID, "field-city").send_keys(TESTOWE_MIASTO)
+    submit_btn = wait.until(
+        EC.element_to_be_clickable((By.NAME, "confirm-addresses"))
+    )
+    submit_btn.click()
+
+    driver.find_element(By.CSS_SELECTOR, "label[for='delivery_option_2']").click() 
+    submit_btn = wait.until(
+        EC.element_to_be_clickable((By.NAME, "confirmDeliveryOption"))
+    )
+    submit_btn.click()
+    driver.find_element(By.CSS_SELECTOR, "label[for='payment-option-3']").click()
+    driver.find_element(By.NAME, "conditions_to_approve[terms-and-conditions]").click()
+    
+    order_btn = wait.until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, "#payment-confirmation button"))
+    )
+    order_btn.click()
+
+    driver.get("https://localhost/historia-zamowien")
+    first_order_row = wait.until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, "table.table tbody tr"))
+    )
+
+    time.sleep(10)
+    invoice_link = None
+    for _ in range(10):  
+        driver.refresh()
+        first_order_row = wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "table.table tbody tr"))
+        )
+        try:
+            invoice_link = first_order_row.find_element(
+                By.CSS_SELECTOR, "a[href*='controller=pdf-invoice']"
+            )
+            break
+        except:
+            pass
+
+        time.sleep(1)
+
+    if not invoice_link:
+        raise Exception("! Brak faktury VAT dla tego zamówienia!")
+
+    invoice_link.click()
+
+    time.sleep(3) 
+    
+
+
+if __name__ == "__main__":
+    chrome_options = Options()
+    chrome_options.binary_location = "/snap/bin/chromium"
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--remote-debugging-port=9222")
+    chrome_options.add_argument("--ignore-certificate-errors")
+    chrome_options.add_argument("--allow-insecure-localhost")
+
+    driver = webdriver.Chrome(options=chrome_options)
+    driver.set_window_size(1600, 1000)
+    driver.get("http://localhost")
+
+    wait = WebDriverWait(driver, 8)
+
+    print("========== TESTY 1-4 ==========")
+    start = time.time()
+
+    print("1. Test - dodanie 10 produktów z 2 kategorii")
+    test_add_products_from_categories()
+
+    print("2. Test - dodanie produktu poprzez wyszukiwanie")
+    add_random_product_via_search(SZUKANA_FRAZA)
+
+    print("3. Test - usunięcie produktów z koszyka")
+    remove_products_from_cart(LICZBA_USUWANYCH)
+
+    print("4. Test - założenie konta")
+    register_new_account(driver)
+
+    print("5. Test - złożenie zamówienia")
+    order_from_cart()
+
+    driver.quit()
+    end = time.time()
+    print(f"\n:D Testy zakończone w czasie {end - start:.3f} s")
+
+    
