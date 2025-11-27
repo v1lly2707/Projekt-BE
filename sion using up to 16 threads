@@ -1,0 +1,98 @@
+[33mcommit bf0c8d98278e03dff01de5fb38eaa11476879404[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mgalaz_N[m[33m, [m[1;31morigin/galaz_N[m[33m)[m
+Author: Natalia Sekula <s197913@student.pg.edu.pl>
+Date:   Mon Nov 24 23:24:29 2025 +0100
+
+    rest-api
+
+[33mcommit fcad27675a13a9ae2a9722143f377a314df304eb[m
+Author: Natalia Sekula <s197913@student.pg.edu.pl>
+Date:   Mon Nov 24 23:12:28 2025 +0100
+
+    rest-api
+
+[33mcommit 0d460d2297e7d4bd9a8d5ec98535089873edb6f5[m
+Author: NatkaDe <nat.dembkowska@gmail.com>
+Date:   Sun Nov 23 23:53:12 2025 +0100
+
+    znalazłeś kotka? (podpowiedź: druga strona na głównej)
+
+[33mcommit 60e4d9a441312a11c175efeaf64e2b43a810b7e4[m
+Author: Patryk Lewandowski <patryklew99@wp.pl>
+Date:   Sun Nov 23 10:52:28 2025 +0100
+
+    Add scraping results
+
+[33mcommit c7b4cade3edb4710975d3009df2835dbcfd2a5bf[m
+Author: Patryk Lewandowski <patryklew99@wp.pl>
+Date:   Sun Nov 23 02:28:11 2025 +0100
+
+    Add scraping script
+
+[33mcommit 061609155c4b08836ac82880fcc7478c2f04d908[m
+Author: Olga R <80749258+TheOlgen@users.noreply.github.com>
+Date:   Wed Oct 15 18:05:08 2025 +0200
+
+    Create README.md
+
+[33mcommit 1283f1cba14cedc83b9c98864e49060580e222c9[m
+Merge: c153ec23 68ba2a1c
+Author: Olga R <80749258+TheOlgen@users.noreply.github.com>
+Date:   Wed Oct 15 18:04:05 2025 +0200
+
+    Merge pull request #2 from v1lly2707/main
+    
+    hehe coś namieszałam
+
+[33mcommit 68ba2a1c5223b91f587ed537abda825339efa7c7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: Olga R <80749258+TheOlgen@users.noreply.github.com>
+Date:   Wed Oct 15 18:02:48 2025 +0200
+
+    Delete config directory
+
+[33mcommit a2f3bdd815d72d1626e751b9ba95493277259c0b[m
+Author: Olga R <80749258+TheOlgen@users.noreply.github.com>
+Date:   Wed Oct 15 18:00:46 2025 +0200
+
+    Update README.md
+
+[33mcommit 26306654fe7f732f07ebf006116464a3e8c2787f[m
+Author: Olga R <80749258+TheOlgen@users.noreply.github.com>
+Date:   Wed Oct 15 17:49:47 2025 +0200
+
+    Create README.md
+
+[33mcommit c153ec2387c0948aff547a9a143c8c126dd18eb5[m
+Author: Olga R <80749258+TheOlgen@users.noreply.github.com>
+Date:   Wed Oct 15 17:47:28 2025 +0200
+
+    Create README.md
+
+[33mcommit b49a5d978a186dfedebd396730142ccc508dee63[m
+Author: Olga R <80749258+TheOlgen@users.noreply.github.com>
+Date:   Wed Oct 15 17:41:38 2025 +0200
+
+    Create README.md
+
+[33mcommit 737dee994ce306dc2d04e4c5dfb6fc4d85ca1fc0[m
+Author: Olga R <80749258+TheOlgen@users.noreply.github.com>
+Date:   Wed Oct 15 17:38:25 2025 +0200
+
+    Create README.md
+
+[33mcommit 383393ed0ab82d32799c4aa9ff4272ec11dd203e[m
+Author: Olga R <80749258+TheOlgen@users.noreply.github.com>
+Date:   Wed Oct 15 17:34:10 2025 +0200
+
+    Update README.md
+
+[33mcommit 2f212be93a3a04ffc1bd2fcf8e735f1524bc926d[m
+Author: Olga R <80749258+TheOlgen@users.noreply.github.com>
+Date:   Wed Oct 15 17:33:49 2025 +0200
+
+    Create README.md
+
+[33mcommit e87c2e2abcecbb5649fbef6f7f3afa9b5fe2f6e4[m
+Author: v1lly2707 <146948997+v1lly2707@users.noreply.github.com>
+Date:   Wed Oct 15 10:46:12 2025 +0200
+
+    Initial commit

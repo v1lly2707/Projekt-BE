@@ -1,0 +1,158 @@
+<?php
+// local_import.php - Wersja dla plików lokalnych z folderu
+define('_PS_ADMIN_DIR_', getcwd());
+require_once(dirname(__FILE__) . '/config/config.inc.php');
+require_once(dirname(__FILE__) . '/init.php');
+
+ini_set('max_execution_time', 0);
+ini_set('memory_limit', '1024M');
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+echo "<h1>Start Importu z plików lokalnych</h1>";
+flush();
+
+// --- USTAWIENIA ŚCIEŻEK ---
+// Upewnij się, że te foldery istnieją!
+$jsonFile = dirname(__FILE__) . '/rezultaty_scrapowania/produkty.json';
+$imagesBaseDir = dirname(__FILE__) . '/rezultaty_scrapowania/zdjecia/';
+
+if (!file_exists($jsonFile)) {
+    die("<h3 style='color:red'>Błąd: Nie znaleziono pliku $jsonFile</h3>");
+}
+
+$produkty = json_decode(file_get_contents($jsonFile), true);
+if (!$produkty) die("Błąd: Nieprawidłowy format JSON.");
+
+echo "Znaleziono " . count($produkty) . " produktów.<hr>";
+
+$counter = 0;
+
+foreach ($produkty as $prodData) {
+    $counter++;
+    $productName = trim($prodData['nazwa']);
+    
+    // 1. Sprawdzenie duplikatu
+    $exists = Db::getInstance()->getValue('SELECT id_product FROM '._DB_PREFIX_.'product_lang WHERE name = "'.pSQL($productName).'" AND id_lang = 1');
+    if ($exists) {
+        // echo "Pomijam istniejący: $productName<br>";
+        continue;
+    }
+
+    // 2. Kategorie (Logika V7)
+    $parentId = Configuration::get('PS_HOME_CATEGORY'); 
+    $categoriesToAssign = [$parentId]; 
+
+    if (isset($prodData['kategoria']) && is_array($prodData['kategoria'])) {
+        foreach ($prodData['kategoria'] as $catRaw) {
+            $catName = trim(str_replace(['/', "\n", "\r", "\t"], '', $catRaw));
+            if (empty($catName) || mb_strtolower($catName) == 'strona główna') continue;
+
+            $catId = getOrCreateCategory($catName, $parentId);
+            $parentId = $catId;
+            $categoriesToAssign[] = $catId;
+        }
+    }
+    $defaultCategory = end($categoriesToAssign);
+
+    // 3. Produkt
+    $price = (float)str_replace([',', ' zł', ' '], ['.', '', ''], $prodData['cena']);
+
+    $product = new Product();
+    $product->name = [1 => $productName];
+    $product->link_rewrite = [1 => Tools::link_rewrite($productName)];
+    $product->price = $price;
+    $product->id_category_default = $defaultCategory;
+    $product->description = [1 => $prodData['opis'] ?? ''];
+    $product->description_short = [1 => substr(strip_tags($prodData['opis'] ?? ''), 0, 100).'...'];
+    $product->redirect_type = '404';
+    $product->minimal_quantity = 1;
+    $product->show_price = 1;
+    $product->active = 1;
+    $product->indexed = 1;
+    $product->id_shop_list = [1]; // Force Shop ID 1
+    
+    if($product->add()) {
+        $product->addToCategories($categoriesToAssign);
+        StockAvailable::setQuantity($product->id, 0, 100);
+        
+        echo "$counter. <b>DODANO:</b> $productName";
+        
+        // 4. ZDJĘCIA (Z folderu lokalnego)
+        if (!empty($prodData['zdjecia'])) {
+            foreach ($prodData['zdjecia'] as $imgUrl) {
+                // Tutaj szukamy pliku w Twoim folderze scrapowania
+                addImageFromLocal($product->id, $imgUrl, $imagesBaseDir);
+            }
+        }
+        echo "<br>";
+    } else {
+        echo "$counter. <b style='color:red'>Błąd zapisu:</b> $productName<br>";
+    }
+    
+    if ($counter % 10 == 0) { flush(); ob_flush(); }
+}
+
+Category::regenerateEntireNtree();
+echo "<h1>KONIEC</h1>";
+
+
+// --- FUNKCJE ---
+
+function getOrCreateCategory($name, $parentId) {
+    $sql = 'SELECT c.id_category FROM '._DB_PREFIX_.'category c 
+            LEFT JOIN '._DB_PREFIX_.'category_lang cl ON c.id_category = cl.id_category
+            WHERE cl.name = "'.pSQL($name).'" AND c.id_parent = '.(int)$parentId;
+    $id = Db::getInstance()->getValue($sql);
+    if ($id) return (int)$id;
+
+    $c = new Category();
+    $c->name = [1 => $name];
+    $c->link_rewrite = [1 => Tools::link_rewrite($name)];
+    $c->id_parent = $parentId;
+    $c->active = 1;
+    $c->id_shop_list = [1];
+    $c->add();
+    return $c->id;
+}
+
+function addImageFromLocal($id_product, $originalUrl, $baseImagesDir) {
+    // 1. Ustal nazwe pliku (bierzemy końcówkę z URL, np. "bidon.jpg")
+    $filename = basename($originalUrl);
+    
+    // 2. Pełna ścieżka do Twojego zescrapowanego pliku
+    $sourcePath = $baseImagesDir . $filename;
+
+    // Debugowanie (opcjonalne, odkomentuj jeśli nie działa)
+    // echo " [Szukam: $sourcePath] ";
+
+    if (!file_exists($sourcePath)) {
+        echo " <span style='color:orange'>[Brak pliku: $filename]</span> ";
+        return false;
+    }
+
+    $image = new Image();
+    $image->id_product = $id_product;
+    $image->position = Image::getHighestPosition($id_product) + 1;
+    $image->cover = ($image->position == 1);
+    
+    if (!$image->add()) return false;
+
+    // Tworzenie struktury folderów PrestaShop
+    $path = $image->getPathForCreation();
+    $dir = dirname($path . '.jpg');
+    if (!file_exists($dir)) mkdir($dir, 0777, true);
+
+    // Kopiowanie z Twojego folderu do folderu Presty
+    if (@copy($sourcePath, $path . '.jpg')) {
+        $types = ImageType::getImagesTypes('products');
+        foreach ($types as $t) {
+            ImageManager::resize($path . '.jpg', $path.'-'.stripslashes($t['name']).'.jpg', $t['width'], $t['height']);
+        }
+        echo " <span style='color:green'>[FOTO OK]</span> ";
+    } else {
+        $image->delete();
+        echo " <span style='color:red'>[Błąd kopiowania]</span> ";
+    }
+}
+?>

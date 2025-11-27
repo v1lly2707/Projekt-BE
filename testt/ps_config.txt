@@ -1,0 +1,15 @@
+EDYCJA SPOSOBÓW DOSTAWY I PŁATNOŚCI:
+
+1. DOSTAWA
+	- wysyłka w panelu bocznym admina
+	- klepnąć jakieś dodatkowe
+	!!!! W PREFERENCJACH KWOTA DARMOWEJ DOSTAWY
+
+2. PŁATNOŚĆ
+	 https://addons.prestashop.com/pl/metody-platnosci-omnichannel-pos/24637-cash-on-delivery-cod.html?search_query_id=be11a50d2367159c014df6e4fe97b90c&search_index=Products_PL_relevance
+	pobrać i w moduły > menedżer modułów koleżkę dodać
+
+
+FAKTURA
+	ustawienia > zamówienia > statusy - przeklikać wszystkie faktury na ok
+
