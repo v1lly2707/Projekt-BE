@@ -1,0 +1,29 @@
+parent: classic
+name: classic-child
+display_name: Dzik Style Theme
+version: 1.0.0
+assets:
+  use_parent_assets: true
+  css:
+    all:
+      - id: custom-lib-style
+        path: assets/css/custom.css
+        priority: 1
+      - id: header-style                     
+        path: assets/css/header.css
+        priority: 50
+      - id: main-style                       
+        path: assets/css/main.css
+        priority: 50
+      - id: footer-style
+        path: assets/css/footer.css
+        priority: 50
+      - id: registration-style
+        path: assets/css/registration.css
+        priority: 50
+      - id: product-page-style
+        path: assets/css/product_page.css
+        priority: 50
+      - id: product-list-style
+        path: assets/css/product-list.css
+        priority: 50
