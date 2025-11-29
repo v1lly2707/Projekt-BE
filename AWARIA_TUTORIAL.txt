@@ -1,0 +1,25 @@
+// Pokazujemy działającą stronę na localhost
+
+localhost
+
+
+// intern przypadkowo usuwa bazę danych
+
+docker exec ps-db mysql -u root -ppassword -e "DROP DATABASE prestashop; CREATE DATABASE prestashop;" 
+
+
+// Pokazujemy niedziałającą stronę na localhost
+
+localhost
+
+
+
+// ale my naprawiamy z backupu
+
+cat ./backups/settings_backup.sql | docker exec -i ps-db mysql -u root -ppassword prestashop
+
+
+
+// Pokazujemy działającą stronę na localhost
+
+localhost
