@@ -1,0 +1,329 @@
+.product-cover-container {
+    display: flex !important;
+    flex-direction: row-reverse !important; 
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.images-container{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.product-container > div:nth-child(2){
+    max-width: 20vw;
+}
+
+
+.product-cover {
+    width: 80% !important; 
+    margin: 0 !important;
+}
+
+.product-cover img {
+    width: 150%;
+    border-radius: 5px; 
+    box-shadow: none !important;
+    border: none !important;
+}
+
+
+.js-qv-mask {
+    width: 20% !important; 
+    height: auto !important;
+    overflow: visible !important;
+    display: block !important;
+}
+
+
+.product-images {
+    display: flex !important;
+    flex-direction: column !important; 
+    gap: 10px; 
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.product-images > li.thumb-container {
+    width: 100% !important;
+    margin: 0 !important;
+    border: 1px solid transparent; 
+}
+
+.product-images > li.thumb-container img {
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #eee; 
+}
+
+.product-images > li.thumb-container img.selected {
+    border: 2px solid #000; 
+}
+
+
+.scroll-box-arrows {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+.product-container .col-md-6:last-child {
+    position: relative !important;
+}
+
+/* 2. TYTUŁ PRODUKTU */
+h1.h1 {
+    font-size: 28px !important;       /* Duży rozmiar */
+    font-weight: 900 !important;      /* Bardzo gruby (Black) */
+    text-transform: uppercase !important;
+    color: #000000 !important;
+    line-height: 1.1 !important;
+    margin-bottom: 20px !important;
+    padding-right: 50px !important;   /* Miejsce na serduszko z prawej */
+    font-family: 'Montserrat', sans-serif !important; /* Upewnij się, że masz ten font lub podobny */
+}
+
+
+.current-price {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.current-price .current-price-value {
+    font-size: 18px !important;
+    font-weight: 500 !important;      /* Średnia grubość */
+    color: #000 !important;
+    margin-right: 5px;
+}
+
+.regular-price {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 18px;
+}
+
+.tax-shipping-delivery-label,
+.product-flags {
+    display: none !important;
+}
+
+.product-prices .tax-shipping-delivery-label + div, 
+.product-price-lowest {
+    font-size: 12px !important;
+    color: #000 !important;
+    margin-top: 5px !important;
+    margin-bottom: 30px !important; 
+}
+
+.product-prices span {
+     font-weight: 600;
+}
+
+.product-prices{
+    margin-top: 2rem !important;
+}
+
+.control-label{
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+.qty{
+    padding: 0;
+    margin: 0;
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+
+.add-to-cart {
+    background-color: #0b0b0b !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+    text-transform: none !important; 
+    width: 100% !important;
+    min-width: 17vw;           
+    padding: 15px 0 !important;       
+    border-radius: 0 !important;      
+    border: none !important;
+    transition: background 0.3s;
+
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+
+.add-to-cart:hover {
+    background-color: #222222 !important; 
+}
+
+
+.add-to-cart .material-icons {
+    display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- STYL AKORDEONU (ROZWIJANE SEKCJE) --- */
+
+.wk-accordion-wrapper {
+    margin-top: 40px;
+    margin-bottom: 50px;
+    border-top: 1px solid #e5e5e5; /* Linia na samej górze */
+}
+
+.wk-accordion-item {
+    border-bottom: 1px solid #e5e5e5; /* Linie między elementami */
+}
+
+/* Nagłówek (To co się klika) */
+.wk-accordion-header {
+    padding: 20px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between; /* Rozrzuca tekst i strzałkę */
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    color: #000;
+    text-transform: none; /* Możesz zmienić na uppercase jeśli wolisz */
+    transition: color 0.3s;
+    user-select: none; /* Zapobiega zaznaczaniu tekstu przy szybkim klikaniu */
+}
+
+.wk-accordion-header:hover {
+    color: #333;
+}
+
+/* Strzałka */
+.wk-accordion-header i {
+    transition: transform 0.3s ease; /* Animacja obrotu */
+    font-size: 24px;
+    color: #000;
+}
+
+/* Stan AKTYWNY (Po kliknięciu) */
+.wk-accordion-item.active .wk-accordion-header i {
+    transform: rotate(180deg); /* Obróć strzałkę */
+}
+
+/* Treść (Schowana) */
+.wk-accordion-content {
+    display: none; /* Domyślnie ukryte */
+    padding-bottom: 20px;
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Treść (Pokazana) */
+.wk-accordion-item.active .wk-accordion-content {
+    display: block; /* Pokaż po dodaniu klasy active */
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animacja pojawiania się */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Odsunięcie treści od krawędzi */
+.wk-accordion-content .inner-content {
+    padding-right: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.wk-title-wrapper {
+    display: flex !important;
+    justify-content: space-between; /* Tytuł max w lewo, serce max w prawo */
+    align-items: center; /* Wyrównaj do góry */
+    gap: 30px; /* Odstęp między nazwą a sercem */
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/* 2. TYTUŁ PRODUKTU (H1) */
+.wk-title-wrapper h1.h1 {
+    margin-bottom: 0 !important; /* Usuwamy dolny margines tytułu */
+    flex: 1; /* Tytuł zajmuje całe dostępne miejsce */
+    
+    /* Style czcionki (powtórzenie dla pewności) */
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    color: #000 !important;
+    line-height: 1.1 !important;
+    padding: 0 !important;
+}
+
+/* 3. PUDEŁKO NA SERDUSZKO */
+.wk-wishlist-box {
+    flex-shrink: 0; /* Zapobiega zgniataniu serduszka */
+    padding-top: 5px; /* Drobna korekta, żeby było równo z tekstem */
+}
+
+/* 4. SAM PRZYCISK SERDUSZKA (Reset i stylizacja) */
+/* Musimy zresetować poprzednie ustawienia absolute! */
+.wishlist-button-add, 
+.wishlist-button-default,
+.product-actions .btn-wishlist,
+.wk-wishlist-box .btn {
+    position: static !important; /* WYŁĄCZAMY pozycjonowanie absolutne */
+    margin: 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* 5. IKONA SERDUSZKA */
+.wishlist-button-add i, 
+.wishlist-button-default i,
+.wk-wishlist-box i {
+    font-size: 24px !important; /* Duże serce jak u Dzika */
+    color: #000 !important; /* Czarne */
+    cursor: pointer;
+    transition: color 0.2s, transform 0.2s;
+}
+
+/* Efekt po najechaniu */
+.wk-wishlist-box:hover i {
+    color: #333 !important;
+    transform: scale(1.1); /* Lekkie powiększenie */
+}

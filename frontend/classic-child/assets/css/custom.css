@@ -1,0 +1,107 @@
+@import url('footer.css');
+@import url('main.css');
+@import url('registration.css');
+@import url('header.css');
+@import url('product_page.css');
+
+
+.breadcrumb {
+    background: transparent !important; 
+    padding: 10px 0 !important;
+    margin-bottom: 20px;
+    font-size: 11px !important; 
+    color: #c2c1c1 !important;
+}
+
+.breadcrumb ol {
+    justify-content: flex-start !important;
+    padding: 0;
+    margin: 0;
+    margin-left: 5vw;
+}
+
+.breadcrumb li a,
+.breadcrumb li {
+    color: #888 !important;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.breadcrumb li::after {
+    color: #ccc !important;
+    content: "/" !important;
+    margin: 0 5px;
+}
+
+
+/*
+.wk-col-logo img {
+    max-height: 40px;
+    width: auto;
+}
+
+.wk-col-menu {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+}
+
+#_desktop_top_menu {
+    margin: 0;
+    padding: 0;
+}
+
+.top-menu {
+    margin: 0;
+}
+
+.top-menu > ul > li {
+    float: none;
+    display: inline-block;
+}
+
+.top-menu > ul > li > a {
+    color: #000 !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 0 15px;
+}
+
+.top-menu > ul > li:first-child > a {
+    color: #00aeef !important;
+}
+
+#search_widget {
+    display: none;
+}
+
+.wk-col-icons {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.wk-col-icons .material-icons {
+    color: #000 !important;
+    font-size: 24px;
+}
+
+
+.user-info .hidden-sm-down,
+.cart-products-count,
+.blockcart .header {
+    display: none !important;
+}
+
+.blockcart {
+    margin-left: 0;
+    background: none;
+    padding: 0;
+}
+
+.user-info {
+    margin-left: 0;
+}
+*/
