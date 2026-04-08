@@ -1,0 +1,3 @@
+/src/*
+!/src/custom-modules/
+!/src/themes/
